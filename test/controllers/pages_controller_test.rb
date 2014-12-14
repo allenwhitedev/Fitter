@@ -20,6 +20,12 @@ test "should get about" do
 	assert_select "title", "About"
 end
 
+test "should handle empty title" do
+	get :empty_title
+	assert_response :success
+	assert_select "title", "Fitter"
+end
+
 
 
 end

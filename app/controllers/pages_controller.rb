@@ -9,4 +9,7 @@ end
 def about
 end
 
+def empty_title
+end
+
 end 
