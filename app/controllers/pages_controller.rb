@@ -6,4 +6,7 @@ end
 def other_sites 
 end
 
+def about
+end
+
 end 

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root "pages#home"
 
   match "other_sites", to: "pages#other_sites", via: "get"
+  match "about", to: "pages#about", via: "get"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

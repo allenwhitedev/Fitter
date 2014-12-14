@@ -10,3 +10,6 @@ capybara-*.html
 **.orig
 rerun.txt
 pickle-email-*.html
+
+# Ignore Spring files b/c of guard
+/spring/*.pid
