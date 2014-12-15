@@ -1,0 +1,20 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+
+ul { & li a {text-decoration: none; color: #fff;} }
+
+.the_body {background: #2b3e50; color: #ebebeb; font-family: 'Raleway', sans-serif;}
+
+/* HEADER */
+
+/* bootstrap override */
+.nav-tabs.nav-justified > li > a {border: none !important;}
+
+.header_tabs {border: none;}
+
+.header_bar {background: #4e5d6c;}
+
+.header_tabs {border: none;}
+
+.navbar {background: #4e5d6c; border: none; }

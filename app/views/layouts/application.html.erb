@@ -2,13 +2,21 @@
 <html>
 <head>
   <title><%= titler(yield(:title)) %></title>
+  <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <%= render "layouts/shim" %>
 </head>
-<body>
 
+<%= render "layouts/header" %>
+
+<body class="the_body">
+	<div class="container">
 <%= yield %>
-
+	</div>
 </body>
+
+<%= render "layouts/footer" %>
+
 </html>

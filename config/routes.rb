@@ -2,11 +2,15 @@ Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
+  # PAGES
   root "pages#home"
-
   match "other_sites", to: "pages#other_sites", via: "get"
   match "about", to: "pages#about", via: "get"
   match "empty_title", to: "pages#empty_title", via: "get"
+
+  # USERS
+  resources :users
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
