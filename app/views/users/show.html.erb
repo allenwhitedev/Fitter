@@ -1,6 +1,6 @@
 <%= @user.name %><br>
 <%= @user.email %><br>
 
-<%= if @user.id == current_user.id %>
-<%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+<% if @user.id == current_user.id %>
+	<%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
 <% else %> <% end %>
