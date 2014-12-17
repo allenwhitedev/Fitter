@@ -10,7 +10,11 @@
     </li>
     
     <li>
-    	<%= link_to "Profile", other_sites_path, class: "center-block" %>
+      <% if !current_user.nil? %>
+       <%= link_to "Profile", current_user %>
+      <% else %>
+        <%= link_to "Sign In/Up", new_user_session_path %>
+      <% end %>
     </li> 
 	</ul>
 
