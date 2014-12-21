@@ -65,5 +65,13 @@ class UserTest < ActiveSupport::TestCase
 		assert_not duplicate_user.valid?
 	end
 
+  test "a user's feats should be destroyed when they are" do
+    @user.save
+    @user.feats.create!(content: "Valid content stuff")
+    assert_difference "Feat.count", -1 do
+      @user.destroy
+    end
+  end
+
 
 end

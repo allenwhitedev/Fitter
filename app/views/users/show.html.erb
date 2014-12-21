@@ -1,5 +1,18 @@
+<% provide :title, @user.name %>
 <%= @user.name %><br>
 <%= @user.email %><br>
+
+
+<div class="col-md-8">
+	<% if @user.feats.any? %>
+		Feats: <%= @user.feats.count %><br>
+		<ol class="feats">
+			<%= render @feats %>
+		</ol>
+		<%= will_paginate @feats %>		
+	<% end %>
+</div>
+	
 
 <% if @user.id == current_user.id %>
 	<%= link_to "Sign Out", destroy_user_session_path, method: :delete %>

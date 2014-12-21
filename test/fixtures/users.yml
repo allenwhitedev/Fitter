@@ -7,3 +7,17 @@
 # two:
 #   name: MyString
 #   email: MyString
+
+first_guy:
+  name: Valid Guy
+  email: guy_valid@gmail.com
+  encrypted_password: <%= Devise.bcrypt(User, 'password') %>
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
+
+<% 1000.times do |n| %>
+FitGuy_<%= n %>:
+  name: <%= "FitUser #{n}" %>
+  email: <%= "FitUser-#{n}@gmail.com" %>
+  encrypted_password: <%= Devise.bcrypt(User, 'password') %>
+<% end %>

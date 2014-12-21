@@ -1,0 +1,40 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# one:
+#   user_id: 
+#   picture: MyString
+#   title: MyString
+#   content: MyText
+
+# two:
+#   user_id: 
+#   picture: MyString
+#   title: MyString
+#   content: MyText
+
+squatting_time:
+  content: "Quick form check, nothing heavy."
+  created_at: "<%= 3000.minutes.ago %>"
+  user: first_guy
+
+bench_press:
+  content: "Set a new personal record yesterday."
+  created_at: "<%= 2.hours.ago %>"
+  user: first_guy
+
+deadlift:
+  content: "Deadlifted a ton today!"
+  created_at: "<%= 1.hours.ago %>"
+  user: first_guy
+
+most_recent:
+  content: "This is the most recent feat that is also a fixture"
+  created_at: <%= Time.zone.now %>
+  user: first_guy
+
+<% 30.times do |n| %>
+feat_<%= n %>:
+  content: <%= Faker::Lorem.sentence(5) %>
+  created_at: <%= 40.days.ago %>
+  user: first_guy
+<% end %>
