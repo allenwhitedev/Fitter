@@ -11,9 +11,9 @@
 first_guy:
   name: Valid Guy
   email: guy_valid@gmail.com
-  encrypted_password: <%= Devise.bcrypt(User, 'password') %>
-  created_at: <%= Time.now %>
-  updated_at: <%= Time.now %>
+  encrypted_password: "secretpassword"#<%= Devise.bcrypt(User, 'password') %>
+#  created_at: <%= Time.now %>
+#  updated_at: <%= Time.now %>
 
 <% 1000.times do |n| %>
 FitGuy_<%= n %>:
