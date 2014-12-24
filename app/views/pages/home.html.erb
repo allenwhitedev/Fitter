@@ -1,2 +1,9 @@
 <%= provide :title, "Home" %>
 <h1>Home Page</h1>
+
+<% if signed_in? %>
+	<%= render 'shared/user_info' %>
+	<%= render 'shared/feat_form' %>
+<% else %>
+	<h1>Not logged in currently</h1>
+<% end %>

@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   match "about", to: "pages#about", via: "get"
   match "empty_title", to: "pages#empty_title", via: "get"
 
+  resources :feats, only: [:create, :destroy]
+  # maybe an expand route here for pics, etc.
+
   # USERS
   resources :users
 

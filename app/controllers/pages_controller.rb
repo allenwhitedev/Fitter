@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
 
 def home
+	@feat = current_user.feats.build if signed_in?
 end
 
 def other_sites 

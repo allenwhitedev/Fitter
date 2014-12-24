@@ -1,0 +1,15 @@
+<%= form_for @feat do |f| %>
+	
+	<%= render 'shared/error_messages', object: f.object %>
+
+	<div class="field" %>
+		<%= f.text_field :title, placeholder: "Feat Name..." %>
+	</div>
+
+	<div class="field">
+		<%= f.text_area :content, placeholder: "New feat..." %>
+	</div>
+
+	<%= f.submit "Post", class: "post_btn" %>
+
+<% end %>
