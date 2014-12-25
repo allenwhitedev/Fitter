@@ -21,8 +21,14 @@ test "should redirect destroy when signed out" do
 	assert_redirected_to new_user_session_url
 end	
 
+# must implement without working users fixture or fix
+#test "should redirect destroy for wrong user" do
+#end	
 
-# NO WAY TO CREATE FEATS YET
+
+
+# Will implement final version at a later date
+	# if it's worth it
 # test "should create when signed in" do
 # 	assert_difference "Feat.count" do
 # 		post :create, feat: { content: "Should 

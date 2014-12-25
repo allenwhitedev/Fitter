@@ -1,7 +1,13 @@
 class PagesController < ApplicationController
 
 def home
-	@feat = current_user.feats.build if signed_in?
+	if signed_in?
+		@feat = current_user.feats.build 
+		@feed_items = current_user.feed.paginate(
+			page: params[:page])
+	else
+		@feed_items = []
+	end	
 end
 
 def other_sites 

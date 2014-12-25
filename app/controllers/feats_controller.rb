@@ -1,6 +1,7 @@
 class FeatsController < ApplicationController
 
 before_action :authenticate_user!, only: [:create, :destroy]
+before_action :correct_user, only: :destroy
 
 def create
 	@feat = current_user.feats.build(feat_params)
@@ -8,11 +9,15 @@ def create
 		flash[:success] = "Feat posted"
 		redirect_to root_url
 	else
+		@feed_items = []
 		render 'root_url'
 	end
 end
 
 def destroy
+	@feat.destroy
+	flash[:success] = "Feat deleted"
+	redirect_to request.referrer || root_url
 end
 
 def show
@@ -22,6 +27,11 @@ private
 
 def feat_params
 	params.require(:feat).permit(:title, :content)
+end
+
+def correct_user
+	@feat = current_user.feats.find_by(id: params[:id])
+	redirect_to root_url if @feat.nil?
 end
 
 end

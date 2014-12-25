@@ -1,5 +1,8 @@
 <li id=feat-"<%= feat.id %>">
-	<%= link_to feat.user.name, feat.user %>
-	<%= feat.title %>
-	<%= feat.content %>
+	<%= link_to feat.user.name, feat.user %> ->
+	<%= feat.title %><br>
+	<%= feat.content %><br>
+	<% if signed_in? && current_user?(feat.user) %>
+		<%= link_to "Delete Feat", feat, method: :delete, data: { confirm: "Are you sure you want to delete this feat?" } %>
+	<% end %>
 </li>
