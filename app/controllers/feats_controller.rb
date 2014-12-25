@@ -26,7 +26,7 @@ end
 private
 
 def feat_params
-	params.require(:feat).permit(:title, :content)
+	params.require(:feat).permit(:title, :content, :picture)
 end
 
 def correct_user

@@ -1,4 +1,4 @@
-<%= form_for @feat do |f| %>
+<%= form_for @feat, html: { multipart: true } do |f| %>
 	
 	<%= render 'shared/error_messages', object: f.object %>
 
@@ -10,6 +10,20 @@
 		<%= f.text_area :content, placeholder: "New feat..." %>
 	</div>
 
+	<div class="pic_field">
+		<%= f.file_field :picture, accept: "image/jpeg,image/jpg,image/gif,image/png" %>
+	</div>
+
 	<%= f.submit "Post", class: "post_btn" %>
 
 <% end %>
+
+<script type="text/javascript">
+	$('#feat_picture').bind('change', function() 
+	{
+		sizeInMB = this.files[0].size/1024/1024;
+		if (sizeInMB > 5) {
+			alert("Files cannot be larger than 5MB.")
+	}
+		});
+</script>

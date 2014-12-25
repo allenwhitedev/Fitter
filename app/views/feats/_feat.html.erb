@@ -2,6 +2,7 @@
 	<%= link_to feat.user.name, feat.user %> ->
 	<%= feat.title %><br>
 	<%= feat.content %><br>
+	<%= image_tag feat.picture.url if feat.picture? %><br>
 	<% if signed_in? && current_user?(feat.user) %>
 		<%= link_to "Delete Feat", feat, method: :delete, data: { confirm: "Are you sure you want to delete this feat?" } %>
 	<% end %>
