@@ -10,10 +10,15 @@ Rails.application.routes.draw do
   match "empty_title", to: "pages#empty_title", via: "get"
 
   resources :feats, only: [:create, :destroy]
+  resources :relationships, only: [:create, :destroy]
   # maybe an expand route here for pics, etc.
 
   # USERS
-  resources :users
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
 
 
   # Example of regular route:

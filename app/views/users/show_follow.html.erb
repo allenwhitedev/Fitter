@@ -1,0 +1,22 @@
+<% provide :title, @title %>
+<div class="user_info">
+	<%= link_to @user.name, @user %>
+	Feats: <%= @user.feats.count %>
+</div>
+	
+<%= render 'shared/stats' %>
+
+<!-- Will include this on side if/when photos are added from fb/authentication -->
+<%# if @users.any? %>
+	<%#= @users.each do |user| %>
+		<%#= link_to @user.name, @user %>
+		<!-- Photo can be included if/when fb login is added -->
+	<%# end %>
+<%# end %>
+
+<% if @users.any? %>
+	<ul>
+		<%= render @users %>
+	</ul>
+	<%= will_paginate %>
+<% end %>

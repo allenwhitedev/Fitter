@@ -1,7 +1,10 @@
 <% provide :title, @user.name %>
 <%= @user.name %><br>
 <%= @user.email %><br>
-
+<%= render 'shared/stats' %>
+<% if signed_in? %>
+	<%= render 'shared/follow_form' %>
+<% end %>
 
 <div class="col-md-8">
 	<% if @user.feats.any? %>
