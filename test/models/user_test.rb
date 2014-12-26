@@ -6,7 +6,14 @@ class UserTest < ActiveSupport::TestCase
   # end
 
   def setup
-  	@user = User.new(name: "Bill Guy", email: "billguy@gmail.com", password: "securepassword")
+  	@user = User.new(name: "Bill Guy", 
+      email: "billguy@gmail.com", 
+      password: "securepassword", id: 4)
+    @user_two = User.new(name: "Bob Guy", 
+      email: "bobguy@gmail.com", 
+      password: "securepassword", id: 5)
+    @user.save
+    @user_two.save
   end
 
   test "should be valid" do
@@ -71,6 +78,16 @@ class UserTest < ActiveSupport::TestCase
     assert_difference "Feat.count", -1 do
       @user.destroy
     end
+  end
+
+  test "should follow and unfollow" do
+    assert_not @user.following?(@user_two)
+    @user.follow(@user_two)
+    assert @user_two.followers.include?(@user)
+    assert @user.following?(@user_two)
+    @user.unfollow(@user_two)
+    assert_not @user.following?(@user_two)
+    assert_not @user_two.followers.include?(@user)
   end
 
 
