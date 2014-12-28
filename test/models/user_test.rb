@@ -6,14 +6,31 @@ class UserTest < ActiveSupport::TestCase
   # end
 
   def setup
+
+    # Users
   	@user = User.new(name: "Bill Guy", 
       email: "billguy@gmail.com", 
       password: "securepassword", id: 4)
     @user_two = User.new(name: "Bob Guy", 
       email: "bobguy@gmail.com", 
       password: "securepassword", id: 5)
+     @user_three = User.new(name: "Brad Guy", 
+      email: "bradguy@gmail.com", 
+      password: "securepassword", id: 6)
     @user.save
     @user_two.save
+    @user_three.save
+
+    # Feats
+    @feat = @user.feats.create(content: "1Valid content is here.")
+    @feat1 = @user.feats.create(content: "2 Valid content is here.")
+    @feat2 = @user_two.feats.create(content: "1 Valid content is here.")
+    @feat3 = @user_two.feats.create(content: "2 Valid content is here.")
+    @feat4 = @user_two.feats.create(content: "3 Valid content is here.")
+    @feat5 = @user_three.feats.create(content: "1 Valid content is here.")
+    @feat6 = @user_three.feats.create(content: "2 Valid content is here.")
+    @feat7 = @user_three.feats.create(content: "3 Valid content is here.")
+    @feat8 = @user_three.feats.create(content: "4 Valid content is here.")
   end
 
   test "should be valid" do
@@ -75,7 +92,7 @@ class UserTest < ActiveSupport::TestCase
   test "a user's feats should be destroyed when they are" do
     @user.save
     @user.feats.create!(content: "Valid content stuff")
-    assert_difference "Feat.count", -1 do
+    assert_difference "Feat.count", -@user.feats.count do
       @user.destroy
     end
   end
@@ -89,6 +106,22 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.following?(@user_two)
     assert_not @user_two.followers.include?(@user)
   end
+
+  test "feed should have posts of user and following only" do
+   
+    # Following posts
+    @user_three.feats.each do |followed_feat|
+      @user.feed.include?(followed_feat)
+    end
+    # User's own posts
+    @user.feats.each do |own_feat| 
+      assert @user.feed.include?(own_feat)
+    end
+    # Non-following posts 
+    @user_two.feats.each do |non_feat|
+      assert_not @user.feed.include?(non_feat)
+    end
+  end    
 
 
 end
