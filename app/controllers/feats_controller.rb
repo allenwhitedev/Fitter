@@ -10,7 +10,7 @@ def create
 		redirect_to root_url
 	else
 		@feed_items = []
-		render 'root_url'
+		render 'pages/home'
 	end
 end
 

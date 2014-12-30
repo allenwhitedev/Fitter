@@ -13,3 +13,6 @@ pickle-email-*.html
 
 # Ignore Spring files b/c of guard
 /spring/*.pid
+
+# Ignore local file uploads 
+/public/uploads
