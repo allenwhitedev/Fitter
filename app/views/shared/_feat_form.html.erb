@@ -3,16 +3,18 @@
 	<%= render 'shared/error_messages', object: f.object %>
 
 	<div class="field" %>
-		<%= f.text_field :title, placeholder: "Feat Name..." %>
+		<%= f.text_field :title, placeholder: "Feat Name...(optional)" %>
 	</div>
 
 	<div class="field">
 		<%= f.text_area :content, placeholder: "New feat..." %>
 	</div>
 
+	<!--
 	<div class="pic_field">
-		<%= f.file_field :picture, accept: "image/jpeg,image/jpg,image/gif,image/png" %>
+		<%#= f.file_field :picture, accept: "image/jpeg,image/jpg,image/gif,image/png" %>
 	</div>
+	-->
 
 	<%= f.submit "Post", class: "post_btn" %>
 
